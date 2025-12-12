@@ -55,6 +55,7 @@ struct CharacterListView: View {
 
 						Text(character.displayableTvSeries)
 					}
+					.frame(maxWidth: .infinity, alignment: .leading)
 					.font(.footnote)
 				}
 				.frame(maxWidth: .infinity, alignment: .leading)

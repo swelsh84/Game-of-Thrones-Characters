@@ -20,7 +20,7 @@ struct GOTCharacter: Identifiable {
 	let playedBy: [String]
 
 	var displayableTvSeries: String {
-		tvSeries.joined(separator: ", ")
+		tvSeries.toRomanNumerals()
 	}
 
 	var displayableDied: String {

@@ -14,19 +14,11 @@
 			remoteGlobalIDString = 20243B0A2EEC180A00091A4E;
 			remoteInfo = GOTCharacters;
 		};
-		20243B232EEC180D00091A4E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 20243B032EEC180A00091A4E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 20243B0A2EEC180A00091A4E;
-			remoteInfo = GOTCharacters;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		20243B0B2EEC180A00091A4E /* GOTCharacters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GOTCharacters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20243B182EEC180D00091A4E /* GOTCharactersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GOTCharactersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		20243B222EEC180D00091A4E /* GOTCharactersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GOTCharactersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -36,6 +28,8 @@
 				Config/Config.swift,
 				Source/API/CharacterService.swift,
 				Source/API/Models/GOTCharacterDTO.swift,
+				"Source/Extensions/Array+Extensions.swift",
+				"Source/Extensions/String+Extensions.swift",
 				Source/Helpers/ErrorHandler.swift,
 				Source/Helpers/LoadingState.swift,
 				Source/Models/GOTCharacter.swift,
@@ -77,11 +71,6 @@
 			path = GOTCharactersTests;
 			sourceTree = "<group>";
 		};
-		20243B252EEC180D00091A4E /* GOTCharactersUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = GOTCharactersUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +88,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		20243B1F2EEC180D00091A4E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -114,7 +96,6 @@
 			children = (
 				20243B0D2EEC180A00091A4E /* GOTCharacters */,
 				20243B1B2EEC180D00091A4E /* GOTCharactersTests */,
-				20243B252EEC180D00091A4E /* GOTCharactersUITests */,
 				20243B0C2EEC180A00091A4E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -124,7 +105,6 @@
 			children = (
 				20243B0B2EEC180A00091A4E /* GOTCharacters.app */,
 				20243B182EEC180D00091A4E /* GOTCharactersTests.xctest */,
-				20243B222EEC180D00091A4E /* GOTCharactersUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -177,29 +157,6 @@
 			productReference = 20243B182EEC180D00091A4E /* GOTCharactersTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		20243B212EEC180D00091A4E /* GOTCharactersUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 20243B322EEC180D00091A4E /* Build configuration list for PBXNativeTarget "GOTCharactersUITests" */;
-			buildPhases = (
-				20243B1E2EEC180D00091A4E /* Sources */,
-				20243B1F2EEC180D00091A4E /* Frameworks */,
-				20243B202EEC180D00091A4E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				20243B242EEC180D00091A4E /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				20243B252EEC180D00091A4E /* GOTCharactersUITests */,
-			);
-			name = GOTCharactersUITests;
-			packageProductDependencies = (
-			);
-			productName = GOTCharactersUITests;
-			productReference = 20243B222EEC180D00091A4E /* GOTCharactersUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -214,10 +171,6 @@
 						CreatedOnToolsVersion = 26.1.1;
 					};
 					20243B172EEC180D00091A4E = {
-						CreatedOnToolsVersion = 26.1.1;
-						TestTargetID = 20243B0A2EEC180A00091A4E;
-					};
-					20243B212EEC180D00091A4E = {
 						CreatedOnToolsVersion = 26.1.1;
 						TestTargetID = 20243B0A2EEC180A00091A4E;
 					};
@@ -239,7 +192,6 @@
 			targets = (
 				20243B0A2EEC180A00091A4E /* GOTCharacters */,
 				20243B172EEC180D00091A4E /* GOTCharactersTests */,
-				20243B212EEC180D00091A4E /* GOTCharactersUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -253,13 +205,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		20243B162EEC180D00091A4E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		20243B202EEC180D00091A4E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -283,13 +228,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		20243B1E2EEC180D00091A4E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -297,11 +235,6 @@
 			isa = PBXTargetDependency;
 			target = 20243B0A2EEC180A00091A4E /* GOTCharacters */;
 			targetProxy = 20243B192EEC180D00091A4E /* PBXContainerItemProxy */;
-		};
-		20243B242EEC180D00091A4E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 20243B0A2EEC180A00091A4E /* GOTCharacters */;
-			targetProxy = 20243B232EEC180D00091A4E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -541,46 +474,6 @@
 			};
 			name = Release;
 		};
-		20243B332EEC180D00091A4E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 94A6U4CABB;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.stuwelsh.GOTCharactersUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = GOTCharacters;
-			};
-			name = Debug;
-		};
-		20243B342EEC180D00091A4E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 94A6U4CABB;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.stuwelsh.GOTCharactersUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = GOTCharacters;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -607,15 +500,6 @@
 			buildConfigurations = (
 				20243B302EEC180D00091A4E /* Debug */,
 				20243B312EEC180D00091A4E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		20243B322EEC180D00091A4E /* Build configuration list for PBXNativeTarget "GOTCharactersUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				20243B332EEC180D00091A4E /* Debug */,
-				20243B342EEC180D00091A4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
