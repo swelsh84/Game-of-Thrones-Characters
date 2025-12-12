@@ -29,9 +29,23 @@
 		20243B222EEC180D00091A4E /* GOTCharactersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GOTCharactersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		20243B422EEC1D4000091A4E /* Exceptions for "GOTCharacters" folder in "GOTCharactersTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Source/API/Models/GOTCharacterDTO.swift,
+				Source/Models/GOTCharacter.swift,
+			);
+			target = 20243B172EEC180D00091A4E /* GOTCharactersTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		20243B0D2EEC180A00091A4E /* GOTCharacters */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				20243B422EEC1D4000091A4E /* Exceptions for "GOTCharacters" folder in "GOTCharactersTests" target */,
+			);
 			path = GOTCharacters;
 			sourceTree = "<group>";
 		};
