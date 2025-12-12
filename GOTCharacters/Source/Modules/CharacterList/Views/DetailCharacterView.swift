@@ -29,12 +29,12 @@ struct DetailCharacterView: View {
 			}
 			Section("Titles") {
 				ForEach(character.titles, id: \.self) { title in
-					Text(title)
+					Text(title.isEmpty ? "N/A" : title)
 				}
 			}
 			Section("Aliases") {
 				ForEach(character.aliases, id: \.self) { alias in
-					Text(alias)
+					Text(alias.isEmpty ? "N/A" : alias)
 				}
 			}
 			Section("Played By") {
