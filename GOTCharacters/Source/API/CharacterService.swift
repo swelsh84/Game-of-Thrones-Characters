@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum NetworkError: Error {
+enum NetworkError: AppError {
 	case badURL
 	case badServerResponse
 	case decodingFailed
@@ -19,14 +19,10 @@ protocol CharacterServicing {
 
 class CharacterService: CharacterServicing {
 
-//	private let baseURL = "https://yj8ke8qonl.execute-api.eu-west-1.amazonaws.com"
-
 	func fetchCharacters() async throws -> [GOTCharacter] {
 		guard let url = URL(string: "\(Config.baseURL)/characters") else {
 			throw NetworkError.badURL
 		}
-
-		print("URL: \(url)")
 
 		var request = URLRequest(url: url)
 		request.setValue("Bearer \(Config.bearerToken)", forHTTPHeaderField: "Authorization")
