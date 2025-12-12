@@ -19,3 +19,7 @@ extension ErrorHandling {
 		print("Error recorded: \(error)")
 	}
 }
+
+enum GenericError: AppError {
+	case unknown
+}

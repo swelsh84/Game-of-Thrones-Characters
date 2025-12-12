@@ -33,9 +33,13 @@
 		20243B422EEC1D4000091A4E /* Exceptions for "GOTCharacters" folder in "GOTCharactersTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Config/Config.swift,
 				Source/API/CharacterService.swift,
 				Source/API/Models/GOTCharacterDTO.swift,
+				Source/Helpers/ErrorHandler.swift,
+				Source/Helpers/LoadingState.swift,
 				Source/Models/GOTCharacter.swift,
+				Source/Modules/CharacterList/ViewModels/CharacterListViewModel.swift,
 			);
 			target = 20243B172EEC180D00091A4E /* GOTCharactersTests */;
 		};
@@ -43,6 +47,13 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
+			);
+			target = 20243B0A2EEC180A00091A4E /* GOTCharacters */;
+		};
+		20243B622EEC3EA800091A4E /* Exceptions for "GOTCharactersTests" folder in "GOTCharacters" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				API/MockCharacterService.swift,
 			);
 			target = 20243B0A2EEC180A00091A4E /* GOTCharacters */;
 		};
@@ -60,6 +71,9 @@
 		};
 		20243B1B2EEC180D00091A4E /* GOTCharactersTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				20243B622EEC3EA800091A4E /* Exceptions for "GOTCharactersTests" folder in "GOTCharacters" target */,
+			);
 			path = GOTCharactersTests;
 			sourceTree = "<group>";
 		};

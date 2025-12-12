@@ -8,7 +8,7 @@
 import Foundation
 
 class MockCharacterService: CharacterServicing {
-	let characters: [GOTCharacter] = []
+	var characters: [GOTCharacter] = []
 
 	func fetchCharacters() async throws -> [GOTCharacter] {
 		return characters
