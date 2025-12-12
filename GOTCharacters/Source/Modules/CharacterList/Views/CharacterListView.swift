@@ -33,30 +33,32 @@ struct CharacterListView: View {
 	@ViewBuilder
 	func list() -> some View {
 		List(viewModel.characters, id: \.id) { character in
-			VStack(spacing: 20) {
-				HStack {
-					Text(character.name)
-
-					Spacer()
-
-					Text(character.displayableCulture)
-				}
-
-				VStack(alignment: .leading) {
+			NavigationLink(destination: DetailCharacterView(character: character)) {
+				VStack(spacing: 20) {
 					HStack {
-						Text(character.born)
+						Text(character.name)
 
-						Text(" - ")
+						Spacer()
 
-						Text(character.displayableDied)
+						Text(character.displayableCulture)
 					}
-					.padding(.bottom)
 
-					Text(character.displayableTvSeries)
+					VStack(alignment: .leading) {
+						HStack {
+							Text(character.born)
+
+							Text(" - ")
+
+							Text(character.displayableDied)
+						}
+						.padding(.bottom)
+
+						Text(character.displayableTvSeries)
+					}
+					.font(.footnote)
 				}
-				.font(.footnote)
+				.frame(maxWidth: .infinity, alignment: .leading)
 			}
-			.frame(maxWidth: .infinity, alignment: .leading)
 		}
 		.refreshable {
 			await viewModel.fetchCharacters()

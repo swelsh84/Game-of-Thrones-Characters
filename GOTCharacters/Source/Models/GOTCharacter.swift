@@ -24,10 +24,10 @@ struct GOTCharacter: Identifiable {
 	}
 
 	var displayableDied: String {
-		died.isEmpty ? "????" : died
+		died.isEmpty ? "N/A" : died
 	}
 	var displayableCulture: String {
-		culture.isEmpty ? "????" : culture
+		culture.isEmpty ? "N/A" : culture
 	}
 }
 
