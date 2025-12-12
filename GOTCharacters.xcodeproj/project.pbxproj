@@ -33,6 +33,7 @@
 		20243B422EEC1D4000091A4E /* Exceptions for "GOTCharacters" folder in "GOTCharactersTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Source/API/CharacterService.swift,
 				Source/API/Models/GOTCharacterDTO.swift,
 				Source/Models/GOTCharacter.swift,
 			);

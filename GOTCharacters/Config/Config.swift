@@ -11,4 +11,7 @@ enum Config {
 	static var bearerToken: String {
 		return Bundle.main.object(forInfoDictionaryKey: "APIBearerToken") as? String ?? ""
 	}
+	static var baseURL: String {
+		return Bundle.main.object(forInfoDictionaryKey: "BaseURL") as? String ?? ""
+	}
 }
