@@ -38,12 +38,20 @@
 			);
 			target = 20243B172EEC180D00091A4E /* GOTCharactersTests */;
 		};
+		20243B4A2EEC238E00091A4E /* Exceptions for "GOTCharacters" folder in "GOTCharacters" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 20243B0A2EEC180A00091A4E /* GOTCharacters */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		20243B0D2EEC180A00091A4E /* GOTCharacters */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
+				20243B4A2EEC238E00091A4E /* Exceptions for "GOTCharacters" folder in "GOTCharacters" target */,
 				20243B422EEC1D4000091A4E /* Exceptions for "GOTCharacters" folder in "GOTCharactersTests" target */,
 			);
 			path = GOTCharacters;
@@ -285,6 +293,8 @@
 /* Begin XCBuildConfiguration section */
 		20243B2A2EEC180D00091A4E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 20243B0D2EEC180A00091A4E /* GOTCharacters */;
+			baseConfigurationReferenceRelativePath = Config/Secrets.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -349,6 +359,8 @@
 		};
 		20243B2B2EEC180D00091A4E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 20243B0D2EEC180A00091A4E /* GOTCharacters */;
+			baseConfigurationReferenceRelativePath = Config/Secrets.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -414,6 +426,7 @@
 				DEVELOPMENT_TEAM = 94A6U4CABB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GOTCharacters/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -446,6 +459,7 @@
 				DEVELOPMENT_TEAM = 94A6U4CABB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GOTCharacters/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
