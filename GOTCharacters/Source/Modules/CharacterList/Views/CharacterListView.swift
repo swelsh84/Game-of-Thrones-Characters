@@ -8,10 +8,19 @@
 import SwiftUI
 
 struct CharacterListView: View {
-	@StateObject var viewModel = CharacterListViewModel(service: CharacterService())
+	@StateObject var viewModel: CharacterListViewModel
+
+	init(navigator: Navigatable, service: CharacterServicing) {
+		_viewModel = StateObject(
+			wrappedValue: CharacterListViewModel(
+				navigator: navigator,
+				service: service
+			)
+		)
+	}
 
 	var body: some View {
-		NavigationStack {
+		VStack {
 			switch viewModel.loadingState {
 			case .loading:
 				ProgressView()
@@ -33,33 +42,43 @@ struct CharacterListView: View {
 	@ViewBuilder
 	func list() -> some View {
 		List(viewModel.filteredCharacters, id: \.id) { character in
-			NavigationLink(destination: DetailCharacterView(character: character)) {
-				VStack(spacing: 20) {
-					HStack {
-						Text(character.name)
-
-						Spacer()
-
-						Text(character.displayableCulture)
-					}
-
-					VStack(alignment: .leading) {
+			Button {
+				viewModel.tappedCharacter(character)
+			} label: {
+				HStack {
+					VStack(spacing: 20) {
 						HStack {
-							Text(character.born)
+							Text(character.name)
 
-							Text(" - ")
+							Spacer()
 
-							Text(character.displayableDied)
+							Text(character.displayableCulture)
 						}
-						.padding(.bottom)
 
-						Text(character.displayableTvSeries)
+						VStack(alignment: .leading) {
+							HStack {
+								Text(character.born)
+
+								Text(" - ")
+
+								Text(character.displayableDied)
+							}
+							.padding(.bottom)
+
+							Text(character.displayableTvSeries)
+						}
+						.frame(maxWidth: .infinity, alignment: .leading)
+						.font(.footnote)
 					}
-					.frame(maxWidth: .infinity, alignment: .leading)
-					.font(.footnote)
+
+					Spacer()
+
+					Image(systemName: "chevron.right")
+						.foregroundColor(.secondary)
 				}
 				.frame(maxWidth: .infinity, alignment: .leading)
 			}
+			.buttonStyle(.plain)
 		}
 		.refreshable {
 			await viewModel.fetchCharacters()
@@ -93,5 +112,5 @@ struct CharacterListView: View {
 		GOTCharacterDTO.jonSnow.toDomain()
 	]
 
-	return CharacterListView(viewModel: CharacterListViewModel(service: service))
+	return CharacterListView(navigator: NavigationManager(), service: service)
 }

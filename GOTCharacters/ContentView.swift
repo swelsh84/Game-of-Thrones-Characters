@@ -8,9 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        CharacterListView()
-    }
+	@StateObject private var navigator = NavigationManager()
+
+	var body: some View {
+		NavigationStack(path: $navigator.path) {
+			CharacterListView(navigator: navigator, service: CharacterService())
+				.navigationDestination(for: AppScreen.self, destination: { screen in
+					switch screen {
+					case .characterDetail(let character):
+						DetailCharacterView(character: character)
+					}
+				})
+		}
+	}
 }
 
 #Preview {

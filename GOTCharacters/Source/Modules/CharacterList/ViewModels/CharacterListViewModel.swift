@@ -11,6 +11,8 @@ import Combine
 @MainActor
 class CharacterListViewModel: ObservableObject, ErrorHandling {
 
+	private weak var navigator: Navigatable?
+
 	@Published var characters: [GOTCharacter] = [] {
 		didSet {
 			self.filteredCharacters = characters
@@ -29,7 +31,8 @@ class CharacterListViewModel: ObservableObject, ErrorHandling {
 
 	let service: CharacterServicing
 
-	init(service: CharacterServicing) {
+	init(navigator: Navigatable, service: CharacterServicing) {
+		self.navigator = navigator
 		self.service = service
 
 		$searchText
@@ -58,6 +61,10 @@ class CharacterListViewModel: ObservableObject, ErrorHandling {
 			self.loadingState = .error
 			captureError(GenericError.unknown)
 		}
+	}
+
+	func tappedCharacter(_ character: GOTCharacter) {
+		navigator?.showCharacterDetail(character)
 	}
 
 	private func captureError(_ error: AppError) {

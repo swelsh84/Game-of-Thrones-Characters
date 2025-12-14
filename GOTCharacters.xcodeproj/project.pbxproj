@@ -34,6 +34,7 @@
 				Source/Helpers/LoadingState.swift,
 				Source/Models/GOTCharacter.swift,
 				Source/Modules/CharacterList/ViewModels/CharacterListViewModel.swift,
+				Source/Navigation/NavigationManager.swift,
 			);
 			target = 20243B172EEC180D00091A4E /* GOTCharactersTests */;
 		};

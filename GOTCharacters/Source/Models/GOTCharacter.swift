@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GOTCharacter: Identifiable {
+struct GOTCharacter: Identifiable, Hashable {
 	let id = UUID()
 	let name: String
 	let culture: String

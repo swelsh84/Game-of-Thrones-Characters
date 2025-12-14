@@ -15,7 +15,9 @@ struct CharacterListViewModelTests {
 		let service = MockCharacterService()
 		service.characters = loadMockData()
 
-		let viewModel = CharacterListViewModel(service: service)
+		let viewModel = CharacterListViewModel(
+			navigator: MockNavigationManager(),
+			service: service)
 
 		await viewModel.fetchCharacters()
 
@@ -27,7 +29,10 @@ struct CharacterListViewModelTests {
 	@Test func test_loadingStateIsError_whenNoCharactersAreLoaded() async {
 		let service = MockCharacterService()
 
-		let viewModel = CharacterListViewModel(service: service)
+		let viewModel = CharacterListViewModel(
+			navigator: MockNavigationManager(),
+			service: service
+		)
 
 		await viewModel.fetchCharacters()
 
@@ -47,6 +52,21 @@ struct CharacterListViewModelTests {
 			print("There was an error")
 			return []
 		}
+	}
+
+	@MainActor
+	@Test func test_navigationToCharacterDetail_updatesNavigatorToCorrectCharacter() {
+		let navigator = MockNavigationManager()
+		let viewModel = CharacterListViewModel(
+			navigator: navigator,
+			service: MockCharacterService()
+		)
+
+		let character = GOTCharacterDTO.eddardStark.toDomain()
+
+		viewModel.tappedCharacter(character)
+
+		#expect(navigator.character?.id == character.id)
 	}
 
 }
