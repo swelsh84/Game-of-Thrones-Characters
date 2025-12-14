@@ -32,34 +32,16 @@ struct GOTCharacter: Identifiable {
 }
 
 extension GOTCharacter {
-	static var mockData : GOTCharacter {
-		.init(
-			name: "Eddard Stark",
-			culture: "Northmen",
-			born: "In 263 AC, at Winterfell",
-			died: "In 299 AC, at Great Sept of Baelor in King's Landing",
-			tvSeries: [
-				"Season 1",
-				"Season 6"
-			],
-			gender: "Male",
-			titles: [
-				"Lord of Winterfell",
-				"Warden of the North",
-				"Hand of the King",
-				"Protector of the Realm",
-				"Regent"
-			],
-			aliases: [
-				"Ned",
-				"The Ned",
-				"The Quiet Wolf"
-			],
-			playedBy: [
-				"Sean Bean",
-				"Sebastian Croft",
-				"Robert Aramayo"
-			]
-		)
+	func matches(text: String) -> Bool {
+		guard !text.isEmpty else { return true }
+
+		let searchableStrings = [
+			name,
+			culture
+		] + titles + aliases
+
+		return searchableStrings.contains {
+			$0.localizedCaseInsensitiveContains(text)
+		}
 	}
 }

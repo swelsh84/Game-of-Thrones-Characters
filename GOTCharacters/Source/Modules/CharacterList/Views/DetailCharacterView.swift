@@ -49,5 +49,7 @@ struct DetailCharacterView: View {
 }
 
 #Preview {
-	DetailCharacterView(character: GOTCharacter.mockData)
+	DetailCharacterView(
+		character: GOTCharacterDTO.eddardStark.toDomain()
+	)
 }

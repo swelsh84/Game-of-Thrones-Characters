@@ -5,22 +5,40 @@
 //  Created by Stu Welsh on 12/12/2025.
 //
 
+import Foundation
 import Combine
 
 @MainActor
 class CharacterListViewModel: ObservableObject, ErrorHandling {
 
-	@Published var characters: [GOTCharacter] = []
+	@Published var characters: [GOTCharacter] = [] {
+		didSet {
+			self.filteredCharacters = characters
+		}
+	}
 
 	@Published var loadingState: LoadingState = .loading
 
 	@Published var errorTitle = ""
 	@Published var errorMessage = ""
 
+	@Published var searchText = ""
+	@Published var filteredCharacters: [GOTCharacter] = []
+
+	private var cancellables = Set<AnyCancellable>()
+
 	let service: CharacterServicing
 
 	init(service: CharacterServicing) {
 		self.service = service
+
+		$searchText
+			.removeDuplicates()
+			.debounce(for: .milliseconds(500), scheduler: RunLoop.main)
+			.map { text in
+				self.characters.filter { $0.matches(text: text) }
+			}
+			.assign(to: &$filteredCharacters)
 	}
 
 	func fetchCharacters() async {

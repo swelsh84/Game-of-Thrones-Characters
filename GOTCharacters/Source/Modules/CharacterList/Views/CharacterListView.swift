@@ -32,7 +32,7 @@ struct CharacterListView: View {
 
 	@ViewBuilder
 	func list() -> some View {
-		List(viewModel.characters, id: \.id) { character in
+		List(viewModel.filteredCharacters, id: \.id) { character in
 			NavigationLink(destination: DetailCharacterView(character: character)) {
 				VStack(spacing: 20) {
 					HStack {
@@ -64,6 +64,7 @@ struct CharacterListView: View {
 		.refreshable {
 			await viewModel.fetchCharacters()
 		}
+		.searchable(text: $viewModel.searchText, prompt: "Search Characters")
 	}
 
 	@ViewBuilder
@@ -86,5 +87,11 @@ struct CharacterListView: View {
 }
 
 #Preview {
-    CharacterListView()
+	let service = MockCharacterService()
+	service.characters = [
+		GOTCharacterDTO.eddardStark.toDomain(),
+		GOTCharacterDTO.jonSnow.toDomain()
+	]
+
+	return CharacterListView(viewModel: CharacterListViewModel(service: service))
 }
