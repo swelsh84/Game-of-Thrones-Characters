@@ -17,6 +17,9 @@ struct GOTCharacterDTO: Decodable {
 	let titles: [String]
 	let aliases: [String]
 	let playedBy: [String]
+	let mother: String // Value is present on the API but not currently used. Will not transfer to domain model at this time.
+	let father : String // Value is present on the API but not currently used. Will not transfer to domain model at this time.
+	let povBooks: [String] // Value is present on the API but not currently used. Will not transfer to domain model at this time.
 }
 
 extension GOTCharacterDTO {
@@ -65,7 +68,10 @@ extension GOTCharacterDTO {
 				"Sean Bean",
 				"Sebastian Croft",
 				"Robert Aramayo"
-			]
+			],
+			mother: "",
+			father: "",
+			povBooks: []
 		)
 	}
 
@@ -103,7 +109,10 @@ extension GOTCharacterDTO {
 			],
 			playedBy: [
 				"Peter Dinklage"
-			]
+			],
+			mother: "",
+			father: "",
+			povBooks: []
 		)
 	}
 
@@ -144,7 +153,10 @@ extension GOTCharacterDTO {
 			],
 			playedBy: [
 				"Emilia Clarke"
-			]
+			],
+			mother: "",
+			father: "",
+			povBooks: []
 		)
 	}
 
@@ -178,7 +190,10 @@ extension GOTCharacterDTO {
 			],
 			playedBy: [
 				"Kit Harington"
-			]
+			],
+			mother: "",
+			father: "",
+			povBooks: []
 		)
 	}
 }
